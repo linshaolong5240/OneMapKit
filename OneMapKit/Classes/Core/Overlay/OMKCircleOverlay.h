@@ -1,8 +1,8 @@
 //
 //  OMKCircleOverlay.h
-//  ObjectiveCHelper
+//  OneMapKit
 //
-//  Created by 林少龙 on 2022/11/14.
+//  Created by Sauron on 2022/11/14.
 //  Copyright © 2022 com.sauronpi. All rights reserved.
 //
 

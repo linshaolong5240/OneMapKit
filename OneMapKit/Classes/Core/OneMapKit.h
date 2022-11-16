@@ -8,11 +8,19 @@
 #ifndef OneMapKit_h
 #define OneMapKit_h
 
-#import "OneMapKit/OMKConfig.h"
+#import "OMKConfig.h"
+#import "OMKImage.h"
 #import "OMKManager.h"
-#import "OMKAMapView.h"
-#import "OMKBaiduMapView.h"
-#import "OMKTencentMapView.h"
+#import "OMKMapView.h"
+#import "OMKMapViewProvider.h"
+#import "OMKAnnotation.h"
+#import "OMKAnnotationView.h"
+#import "OMKBubbleAnnotation.h"
+#import "OMKCustomerLocationAnnotation.h"
+#import "OMKEmployeeLocationAnnotation.h"
+#import "OMKOverlay.h"
+#import "OMKCircleOverlay.h"
+#import "OMKPolylineOverlay.h"
 
 FOUNDATION_EXPORT double OneMapKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char OneMapKitVersionString[];
