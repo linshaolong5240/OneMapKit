@@ -1,0 +1,85 @@
+PODS:
+  - AMap3DMap (9.5.0):
+    - AMapFoundation (>= 1.8.0)
+  - AMapFoundation (1.8.0)
+  - AMapSearch (9.5.0):
+    - AMapFoundation (>= 1.8.0)
+  - BaiduMapKit (6.5.4):
+    - BaiduMapKit/Base (= 6.5.4)
+    - BaiduMapKit/Map (= 6.5.4)
+    - BaiduMapKit/Search (= 6.5.4)
+    - BaiduMapKit/Utils (= 6.5.4)
+  - BaiduMapKit/Base (6.5.4)
+  - BaiduMapKit/Map (6.5.4):
+    - BaiduMapKit/Base
+  - BaiduMapKit/Search (6.5.4):
+    - BaiduMapKit/Base
+  - BaiduMapKit/Utils (6.5.4):
+    - BaiduMapKit/Base
+  - BMKLocationKit (2.0.5)
+  - Masonry (1.1.0)
+  - OneMapKit (0.1.0):
+    - Masonry (~> 1.1.0)
+    - OneMapKit/One (= 0.1.0)
+  - OneMapKit/AMap (0.1.0):
+    - AMap3DMap (~> 9.5.0)
+    - AMapSearch (~> 9.5.0)
+    - Masonry (~> 1.1.0)
+    - OneMapKit/Core
+  - OneMapKit/Baidu (0.1.0):
+    - BaiduMapKit (~> 6.5.4)
+    - BMKLocationKit (~> 2.0.5)
+    - Masonry (~> 1.1.0)
+    - OneMapKit/Core
+  - OneMapKit/Core (0.1.0):
+    - Masonry (~> 1.1.0)
+  - OneMapKit/One (0.1.0):
+    - Masonry (~> 1.1.0)
+    - OneMapKit/AMap
+    - OneMapKit/Baidu
+    - OneMapKit/Core
+    - OneMapKit/Tencent
+  - OneMapKit/Tencent (0.1.0):
+    - Masonry (~> 1.1.0)
+    - OneMapKit/Core
+    - Tencent-MapSDK (~> 4.5.10)
+  - Tencent-MapSDK (4.5.10):
+    - Tencent-MapSDK/QMapFoundation (= 4.5.10)
+    - Tencent-MapSDK/QMapKit (= 4.5.10)
+    - Tencent-MapSDK/QMapSDKUtils (= 4.5.10)
+    - Tencent-MapSDK/QMapVisualPlugin (= 4.5.10)
+  - Tencent-MapSDK/QMapFoundation (4.5.10)
+  - Tencent-MapSDK/QMapKit (4.5.10)
+  - Tencent-MapSDK/QMapSDKUtils (4.5.10)
+  - Tencent-MapSDK/QMapVisualPlugin (4.5.10)
+
+DEPENDENCIES:
+  - OneMapKit (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - AMap3DMap
+    - AMapFoundation
+    - AMapSearch
+    - BaiduMapKit
+    - BMKLocationKit
+    - Masonry
+    - Tencent-MapSDK
+
+EXTERNAL SOURCES:
+  OneMapKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AMap3DMap: dc972a62d7fe451795e4b3637e377a2cf593d0e7
+  AMapFoundation: f48153f724114b58da9b01875ab88a1f6856e3db
+  AMapSearch: e0c81206b8ac1d27ef349095a96ea6398e3a0da3
+  BaiduMapKit: 5351ead2e2b4df263baa5954095761b1836c018f
+  BMKLocationKit: c0a4266f84ad2a3296df8c24f14f0ed20dbbf0ee
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  OneMapKit: 66bdcd07e69109f6bf4d3757d439b0283a759d88
+  Tencent-MapSDK: ac047c807262613200e335ca60de8deb9c276dbd
+
+PODFILE CHECKSUM: 059748e7f20c1f78ebda17d4ac3b167111b19d70
+
+COCOAPODS: 1.11.3

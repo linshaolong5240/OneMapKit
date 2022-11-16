@@ -1,0 +1,17 @@
+use_frameworks!
+
+platform :ios, '10.0'
+
+target 'OneMapKit_Example' do
+  pod 'OneMapKit', :path => '../'
+#  pod 'OneMapKit/Core', :path => '../'
+#  pod 'OneMapKit/AMap', :path => '../'
+#  pod 'OneMapKit/Baidu', :path => '../'
+#  pod 'OneMapKit/Tencent', :path => '../'
+
+  target 'OneMapKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
