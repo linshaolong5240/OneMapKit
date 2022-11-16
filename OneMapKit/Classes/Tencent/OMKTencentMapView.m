@@ -309,6 +309,34 @@ OMKUserTrackingMode OMKUserTrackingModeFromQUserTrackingMode(QUserTrackingMode m
     [self.mapView setCenterCoordinate:coordinate animated:animated];
 }
 
+- (CGFloat)zoomLevel {
+    return self.mapView.zoomLevel;
+}
+
+- (void)setZoomLevel:(CGFloat)zoomLevel {
+    self.mapView.zoomLevel = zoomLevel;
+}
+
+- (CGFloat)minZoomLevel {
+    return self.mapView.minZoomLevel;
+}
+
+- (void)setMinZoomLevel:(CGFloat)minZoomLevel {
+    [self.mapView setMinZoomLevel:minZoomLevel maxZoomLevel:self.maxZoomLevel];
+}
+
+- (CGFloat)maxZoomLevel {
+    return self.mapView.maxZoomLevel;
+}
+
+- (void)setMaxZoomLevel:(CGFloat)maxZoomLevel {
+    [self.mapView setMinZoomLevel:self.minZoomLevel maxZoomLevel:maxZoomLevel];
+}
+
+-(void)setZoomLevel:(CGFloat)zoomLevel animated:(BOOL)animated {
+    [self.mapView setZoomLevel:zoomLevel animated:animated];
+}
+
 - (BOOL)showsUserLocation {
     return self.mapView.showsUserLocation;
 }

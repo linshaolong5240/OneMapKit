@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak) id <OMKMapViewDelegate> delegate;
 
 @property (nonatomic, assign) CLLocationCoordinate2D centerCoordinate;
+@property (nonatomic, assign) CGFloat zoomLevel;
+@property (nonatomic, assign) CGFloat minZoomLevel;
+@property (nonatomic, assign) CGFloat maxZoomLevel;
 @property (nonatomic, assign) BOOL showsUserLocation;
 @property(nonatomic, assign) OMKUserTrackingMode userTrackingMode;
 
