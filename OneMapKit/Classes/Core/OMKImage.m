@@ -9,14 +9,8 @@
 
 @implementation OMKImage
 
-+ (NSBundle *)bundleWithName:(NSString *)bundleName {
-    NSBundle *bundle = [NSBundle bundleForClass:[OMKImage class]];
-    NSURL *url = [bundle URLForResource:bundleName withExtension:@"bundle"];
-  return [NSBundle bundleWithURL:url];
-}
-
 + (UIImage *)bundleImage:(NSString *)imageName {
-    NSBundle *targetBundle = [self bundleWithName:@"OneMapKit"];
+    NSBundle *targetBundle = [NSBundle bundleForClass:[self class]];
     return [UIImage imageNamed:imageName
                                 inBundle:targetBundle
            compatibleWithTraitCollection:nil];
