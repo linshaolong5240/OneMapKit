@@ -42,28 +42,34 @@
     
     switch (self.mapType) {
         case OMKMapTypeAMap:
+#ifdef __HAS_AMap_FRAMEWORK__
             self.mapView = [[OMKAMapView alloc] initWithFrame:self.view.bounds];
             self.pointAnnotation = [[OMKABubbleAnnotation alloc] init];
             self.customerLocationAnnotation = [[OMKACustomerLocationAnnotation alloc] init];
             self.employeeLocationAnnotation = [[OMKAEmployeeLocationAnnotation alloc] init];
             self.circleOverlay = [[OMKACircle alloc] init];
             self.polylineOverlay = [OMKAPolyline polylineWithCoordinates:polylineCoords count:6];
+#endif
             break;
         case OMKMapTypeBaidu:
+#ifdef __HAS_BaiduMap_FRAMEWORK__
             self.mapView = [[OMKBaiduMapView alloc] initWithFrame:self.view.bounds];
             self.pointAnnotation = [[OMKBBubbleAnnotation alloc] init];
             self.customerLocationAnnotation = [[OMKBCustomerLocationAnnotation alloc] init];
             self.employeeLocationAnnotation = [[OMKBEmployeeLocationAnnotation alloc] init];
             self.circleOverlay = [[OMKBCircle alloc] init];
             self.polylineOverlay = [OMKBPolyline polylineWithCoordinates:polylineCoords count:6];
+#endif
             break;
         case OMKMapTypeTencent:
+#ifdef __HAS_TencentMap_FRAMEWORK__
             self.mapView = [[OMKTencentMapView alloc] initWithFrame:self.view.bounds];
             self.pointAnnotation = [[OMKQBubbleAnnotation alloc] init];
             self.customerLocationAnnotation = [[OMKQCustomerLocationAnnotation alloc] init];
             self.employeeLocationAnnotation = [[OMKQEmployeeLocationAnnotation alloc] init];
             self.circleOverlay = [[OMKQCircle alloc] init];
             self.polylineOverlay = [OMKQPolyline polylineWithCoordinates:polylineCoords count:6];
+#endif
             break;
         case OMKMapTypeNumber:
             break;;
