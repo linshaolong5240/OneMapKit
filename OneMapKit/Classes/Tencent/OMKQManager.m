@@ -23,6 +23,7 @@
 
 - (void)setApiKey:(nonnull NSString *)apiKey {
     //在使用地图SDK时，需要对应用做Key机制验证，如果地图不添加key，地图将显示鉴权失败,请检查你的Key的错误信息，控制台也同时会显示key 鉴权失败:xxx的错误日志和原因。
+    [QMapServices sharedServices].APIKey = apiKey;
     [[QMSSearchServices sharedServices] setApiKey:apiKey];
 }
 
