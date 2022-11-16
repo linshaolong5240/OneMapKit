@@ -15,22 +15,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    OMKConfig *mapConfig = [[OMKConfig alloc] init];
-    mapConfig.aMapKey = @"6b84213157c7640fd007c800ac20ecf4";
-    mapConfig.baiduMapKey = @"qCfINkbXjt4D2PwngcczywFRHjvqcM7b";
-    mapConfig.tencentMapKey = @"6LDBZ-OG3C6-7GGSW-EPAJH-NN6S5-3JFVQ";
     
     //高德地图
-    [[OMKAManager sharesInstance] setApiKey:@"6b84213157c7640fd007c800ac20ecf4"];
     [[OMKAManager sharesInstance] setPrivacyAgreement:YES];
+    [[OMKAManager sharesInstance] setApiKey:@"6b84213157c7640fd007c800ac20ecf4"];
     
     //百度地图
-    [[OMKBManager sharesInstance] setApiKey:@"qCfINkbXjt4D2PwngcczywFRHjvqcM7b"];
     [[OMKBManager sharesInstance] setPrivacyAgreement:YES];
+    [[OMKBManager sharesInstance] setApiKey:@"qCfINkbXjt4D2PwngcczywFRHjvqcM7b"];
     
     //腾讯地图
-    [[OMKQManager sharesInstance] setApiKey:@"6LDBZ-OG3C6-7GGSW-EPAJH-NN6S5-3JFVQ"];
     [[OMKQManager sharesInstance] setPrivacyAgreement:YES];
+    [[OMKQManager sharesInstance] setApiKey:@"6LDBZ-OG3C6-7GGSW-EPAJH-NN6S5-3JFVQ"];
     
     self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     self.window.backgroundColor = UIColor.whiteColor;

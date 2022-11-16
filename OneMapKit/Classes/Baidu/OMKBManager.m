@@ -57,6 +57,7 @@
 
 - (void)setPrivacyAgreement:(BOOL)isAgree {
     //从地图SDK6.5.1版本起增加隐私合规接口，开发者需要调用接口通知百度地图用户是否已经同意隐私政策。隐私政策官网链接： https://lbsyun.baidu.com/index.php?title=openprivacy
+    [BMKMapManager setAgreePrivacy:isAgree];
     [[BMKLocationAuth sharedInstance] setAgreePrivacy:isAgree];
 }
 

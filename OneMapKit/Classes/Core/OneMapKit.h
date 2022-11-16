@@ -8,7 +8,6 @@
 #ifndef OneMapKit_h
 #define OneMapKit_h
 
-#import "OMKConfig.h"
 #import "OMKImage.h"
 #import "OMKManager.h"
 #import "OMKMapView.h"
