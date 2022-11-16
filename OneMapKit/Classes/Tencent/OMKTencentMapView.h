@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic, weak) id <OMKMapViewDelegate> delegate;
 
+@property (nonatomic, assign) CLLocationCoordinate2D centerCoordinate;
 @property (nonatomic, assign) BOOL showsUserLocation;
 @property(nonatomic, assign) OMKUserTrackingMode userTrackingMode;
 

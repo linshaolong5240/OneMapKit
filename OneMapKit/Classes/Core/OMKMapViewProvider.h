@@ -65,8 +65,14 @@ typedef UIView<OMKMapViewProvider> OMKMapView;
 @required
 @property(nonatomic, weak) id <OMKMapViewDelegate> delegate;
 
+@property (nonatomic, assign) CLLocationCoordinate2D centerCoordinate;
 @property(nonatomic, assign) BOOL showsUserLocation;
 @property(nonatomic, assign) OMKUserTrackingMode userTrackingMode;
+
+/// @brief 设定地图中心点坐标
+/// @param coordinate 要设定的地图中心点坐标，用经纬度表示
+/// @param animated 是否采用动画效果
+- (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated;
 
 #pragma mark - Annotation
 

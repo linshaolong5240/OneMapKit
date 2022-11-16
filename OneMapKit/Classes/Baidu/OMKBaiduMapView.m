@@ -363,6 +363,18 @@ OMKUserTrackingMode OMKUserTrackingModeFromBMKUserTrackingMode(BMKUserTrackingMo
 
 #pragma mark - OMKMapProvider
 
+- (CLLocationCoordinate2D)centerCoordinate {
+    return self.mapView.centerCoordinate;
+}
+
+- (void)setCenterCoordinate:(CLLocationCoordinate2D)centerCoordinate {
+    self.mapView.centerCoordinate = centerCoordinate;
+}
+
+- (void)setCenterCoordinate:(CLLocationCoordinate2D)coordinate animated:(BOOL)animated {
+    [self.mapView setCenterCoordinate:coordinate animated:animated];
+}
+
 - (BOOL)showsUserLocation {
     return self.mapView.showsUserLocation;
 }
