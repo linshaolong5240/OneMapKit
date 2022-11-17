@@ -347,17 +347,7 @@ OMKUserTrackingMode OMKUserTrackingModeFromQUserTrackingMode(QUserTrackingMode m
 
 - (void)setUserTrackingMode:(OMKUserTrackingMode)userTrackingMode {
     _userTrackingMode = userTrackingMode;
-    switch (userTrackingMode) {
-        case OMKMapUserTrackingModeNone:
-            self.mapView.userTrackingMode = QUserTrackingModeNone;
-            break;
-        case OMKMapUserTrackingModeFollow:
-            self.mapView.userTrackingMode = QUserTrackingModeFollow;
-            break;
-        case OMKMapUserTrackingModeFollowWithHeading:
-            self.mapView.userTrackingMode = QUserTrackingModeFollowWithHeading;
-            break;
-    }
+    self.mapView.userTrackingMode = QUserTrackingModeFromOMKUserTrackingMode(userTrackingMode);
 }
 
 - (void)addAnnotation:(id <OMKAnnotation, QAnnotation>)annotation {

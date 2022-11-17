@@ -67,28 +67,29 @@ OMKUserTrackingMode OMKUserTrackingModeFromBMKUserTrackingMode(BMKUserTrackingMo
         _mapView.delegate = self;
         
         _locationManager = [[BMKLocationManager alloc] init];
-        //设置定位管理类实例的代理
+        //设置delegate
         _locationManager.delegate = self;
-        //设定定位坐标系类型，默认为 BMKLocationCoordinateTypeGCJ02
+        //设置返回位置的坐标系类型
         _locationManager.coordinateType = BMKLocationCoordinateTypeBMK09LL;
-        //设定定位精度，默认为 kCLLocationAccuracyBest
+        //设置距离过滤参数
+        _locationManager.distanceFilter = kCLDistanceFilterNone;
+        //设置预期精度参数
         _locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-        //设定定位类型，默认为 CLActivityTypeAutomotiveNavigation
+        //设置应用位置类型
         _locationManager.activityType = CLActivityTypeAutomotiveNavigation;
-        //指定定位是否会被系统自动暂停，默认为NO
+        //设置是否自动停止位置更新
         _locationManager.pausesLocationUpdatesAutomatically = NO;
+        //设置是否允许后台定位
         /**
          是否允许后台定位，默认为NO。只在iOS 9.0及之后起作用。
          设置为YES的时候必须保证 Background Modes 中的 Location updates 处于选中状态，否则会抛出异常。
          由于iOS系统限制，需要在定位未开始之前或定位停止之后，修改该属性的值才会有效果。
          */
         _locationManager.allowsBackgroundLocationUpdates = NO;
-        /**
-         指定单次定位超时时间,默认为10s，最小值是2s。注意单次定位请求前设置。
-         注意: 单次定位超时时间从确定了定位权限(非kCLAuthorizationStatusNotDetermined状态)
-         后开始计算。
-         */
+        //设置位置获取超时时间
         _locationManager.locationTimeout = 10;
+        //设置获取地址信息超时时间
+        _locationManager.reGeocodeTimeout = 10;
         
         _routeSearch = [[BMKRouteSearch alloc] init];
         _routeSearch.delegate = self;
@@ -101,6 +102,7 @@ OMKUserTrackingMode OMKUserTrackingModeFromBMKUserTrackingMode(BMKUserTrackingMo
 - (void)configureView {
     [self addSubview:self.mapView];
     [self.locationManager startUpdatingLocation];
+    [self.locationManager startUpdatingHeading];
 }
 
 #pragma mark - BMKLocationManagerDelegate
@@ -112,7 +114,9 @@ OMKUserTrackingMode OMKUserTrackingModeFromBMKUserTrackingMode(BMKUserTrackingMo
  *  @since 1.6.0
  */
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager doRequestAlwaysAuthorization:(CLLocationManager * _Nonnull)locationManager {
-    
+#if DEBUG
+    NSLog(@"%s", __PRETTY_FUNCTION__);
+#endif
 }
 
 /**
@@ -121,7 +125,9 @@ OMKUserTrackingMode OMKUserTrackingModeFromBMKUserTrackingMode(BMKUserTrackingMo
  *  @param error 返回的错误，参考 CLError 。
  */
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager didFailWithError:(NSError * _Nullable)error {
-    
+#if DEBUG
+    NSLog(@"%s error: %@", __PRETTY_FUNCTION__, error);
+#endif
 }
 
 /**
@@ -131,6 +137,9 @@ OMKUserTrackingMode OMKUserTrackingModeFromBMKUserTrackingMode(BMKUserTrackingMo
  *  @param error 错误信息。
  */
 - (void)BMKLocationManager:(BMKLocationManager *)manager didUpdateLocation:(BMKLocation *)location orError:(NSError *)error {
+#if DEBUG
+    NSLog(@"%s error: %@", __PRETTY_FUNCTION__, error);
+#endif
     if (error) {
         NSLog(@"locError:{%ld - %@};", (long)error.code, error.localizedDescription);
     }
@@ -188,7 +197,17 @@ OMKUserTrackingMode OMKUserTrackingModeFromBMKUserTrackingMode(BMKUserTrackingMo
  */
 - (void)BMKLocationManager:(BMKLocationManager * _Nonnull)manager
           didUpdateHeading:(CLHeading * _Nullable)heading {
-    
+#if DEBUG
+    NSLog(@"%s heading: %@", __PRETTY_FUNCTION__, heading);
+#endif
+    if (!heading) {
+    return;
+    }
+    if (!self.userLocation) {
+    self.userLocation = [[BMKUserLocation alloc] init];
+    }
+    self.userLocation.heading = heading;
+    [self.mapView updateLocationData:self.userLocation];
 }
 
 /**
