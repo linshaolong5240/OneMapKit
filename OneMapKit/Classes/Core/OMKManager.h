@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class OMKConfig;
-
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol OMKManager <NSObject>
